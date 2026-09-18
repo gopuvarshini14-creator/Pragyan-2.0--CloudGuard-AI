@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-base text-ink font-sans antialiased;
+    background-image: radial-gradient(1100px 620px at 78% -8%, rgba(76, 142, 255, 0.09), transparent 62%),
+      radial-gradient(760px 520px at 8% 4%, rgba(139, 123, 247, 0.07), transparent 58%);
+    background-attachment: fixed;
+  }
+
+  /* Telemetry is the content of this product, so every numeral is set in a
+     tabular monospace face and the prose around it stays quiet. */
+  .num {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+
+  ::selection {
+    background: rgba(76, 142, 255, 0.32);
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-signal/70 ring-offset-2 ring-offset-base rounded-sm;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e2a3d;
+    border-radius: 999px;
+    border: 2px solid #070a11;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a3a52;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-line bg-panel shadow-panel;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between gap-3 border-b border-lineSoft px-5 py-3.5;
+  }
+
+  .panel-title {
+    @apply text-sm font-semibold text-ink;
+  }
+
+  .panel-note {
+    @apply text-xs text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border px-3.5 py-2 text-sm font-medium transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-primary {
+    @apply btn border-signal/40 bg-signal/15 text-signal hover:bg-signal/25 hover:border-signal/60;
+  }
+
+  .btn-agent {
+    @apply btn border-agent/40 bg-agent/15 text-agent hover:bg-agent/25 hover:border-agent/60;
+  }
+
+  .btn-ghost {
+    @apply btn border-line bg-raised/60 text-muted hover:text-ink hover:border-line hover:bg-raised;
+  }
+
+  .btn-danger {
+    @apply btn border-danger/35 bg-danger/10 text-danger hover:bg-danger/20;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded border px-2 py-0.5 text-2xs font-medium;
+  }
+
+  .cell {
+    @apply px-4 py-3 text-sm;
+  }
+
+  .th {
+    @apply px-4 py-2.5 text-left text-2xs font-semibold text-dim;
+  }
+
+  .row-link {
+    @apply cursor-pointer border-b border-lineSoft transition-colors duration-150 hover:bg-raised/70;
+  }
+
+  .metric-label {
+    @apply text-2xs text-dim;
+  }
+
+  .metric-value {
+    @apply num text-ink;
+  }
+
+  .divider {
+    @apply border-t border-lineSoft;
+  }
+}

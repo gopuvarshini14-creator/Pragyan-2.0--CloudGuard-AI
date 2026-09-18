@@ -1,0 +1,23 @@
+{
+  "name": "cloudguard-ai-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CloudGuard AI — simulation engine, safety policy engine and autonomous cost optimization agent",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test:engine": "node test-engine.js",
+    "test:api": "node test-api.js",
+    "test:runtime": "node test-runtime.js",
+    "test:ingest": "node test-ingest.js",
+    "analyze": "node analyze-cli.js"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.21.0"
+  }
+}
